@@ -1,0 +1,34 @@
+{
+  "md5": "309f8103b2b7efb7f899fc06a56d8b90",
+  "total_genes": 68523888,
+  "homo_sapiens_genes": 193793,
+  "gene_types": [
+    "biological-region",
+    "miscRNA",
+    "ncRNA",
+    "other",
+    "protein-coding",
+    "pseudo",
+    "rRNA",
+    "scRNA",
+    "snRNA",
+    "snoRNA",
+    "tRNA",
+    "unknown"
+  ],
+  "most_common_gene_type": "protein-coding",
+  "gene_type_counts": {
+    "other": 112054,
+    "protein-coding": 53904416,
+    "pseudo": 3349023,
+    "rRNA": 1394722,
+    "tRNA": 3710820,
+    "miscRNA": 95141,
+    "ncRNA": 4275058,
+    "unknown": 61621,
+    "snRNA": 849123,
+    "snoRNA": 603415,
+    "scRNA": 21,
+    "biological-region": 168474
+  }
+}
