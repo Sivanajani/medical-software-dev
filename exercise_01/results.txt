@@ -1,0 +1,5 @@
+309f8103b2b7efb7f899fc06a56d8b90
+68523888
+193793
+biological-region, miscRNA, ncRNA, other, protein-coding, pseudo, rRNA, scRNA, snRNA, snoRNA, tRNA, unknown
+protein-coding
