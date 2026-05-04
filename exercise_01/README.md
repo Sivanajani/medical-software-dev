@@ -1,6 +1,6 @@
 # Exercise 01 – Gene Analyzer
 
-A command-line tool that analyzes the NCBI `gene_info` dataset and extracts key statistics: total gene count, Homo sapiens gene count, all gene types, and the most frequent gene type. Results are printed to stdout and also saved as `results.json` and `results.txt`.
+A command-line tool that analyzes the NCBI `gene_info` dataset and extracts key statistics: total gene count, Homo sapiens gene count, all gene types, and the most frequent gene type.
 
 ## Setup
 
@@ -10,40 +10,22 @@ Download the gene_info file from NCBI:
 https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene_info.gz
 ```
 
-Extract it into this folder:
-
-```bash
-gunzip gene_info.gz
-```
-
-This produces a file called `gene_info` (~9 GB).
-
 ## Usage
-
-```bash
-python3 gene_analyzer.py gene_info
-```
-
-The script also works directly on the compressed file without extracting:
 
 ```bash
 python3 gene_analyzer.py gene_info.gz
 ```
 
+The script detects the `.gz` extension and decompresses the file on the fly using Python's built-in `gzip` module. No manual extraction needed.
+
 ## Output
 
-Since the `gene_info` file is very large (~9 GB, 68+ million genes), the script includes a progress indicator. Every 1 million processed genes a status line is printed to stderr so you can follow along:
+Since the `gene_info` file is very large (~9 GB, 68+ million genes), the script includes a progress indicator. Every 1 million processed genes a status line is printed to stderr:
 
 ```
   Processed 1,000,000 genes...
   Processed 2,000,000 genes...
   ...
-```
-
-If any malformed lines are detected (too few columns), a warning is printed to stderr at the end:
-
-```
-Warning: X malformed line(s) skipped.
 ```
 
 Once processing is complete, the 5 result lines are printed to stdout:
@@ -66,13 +48,27 @@ biological-region, miscRNA, ncRNA, other, protein-coding, pseudo, rRNA, scRNA, s
 protein-coding
 ```
 
-**Files written to the same folder as the input:**
+## Error handling
 
-| File | Content |
+- No filename provided: prints usage message to stderr, exits with code 1.
+- File not found: prints error to stderr, exits with code 1.
+- File not readable or invalid encoding: prints error to stderr, exits with code 1.
+- Malformed lines (too few columns): skipped with a warning printed to stderr at the end.
+
+## Where to find things
+
+| What | Where |
 |---|---|
-| `results.json` | Full results including per-type counts, as structured JSON |
-| `results.txt` | Same 5-line output as stdout |
+| Script | `gene_analyzer.py` |
+| Input data | `gene_info` (or `gene_info.gz`) |
+| Result output (JSON) | `results.json` |
+| Result output (text) | `results.txt` |
+| Discussion & answers | `exercise_01.md` |
 
-## Discussion
+## Data source
 
-Answers to the exercise questions — including data results and software engineering questions — are in [`answers.md`](answers.md).
+The gene_info dataset was downloaded from NCBI:
+
+```
+https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene_info.gz
+```
