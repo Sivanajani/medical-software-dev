@@ -1,41 +1,64 @@
-# NCBI Datasets
+# Exercise 02 – GC Content Calculator
 
+A command-line tool that computes the GC-content of a DNA sequence from a FASTA file. The GC-content is the percentage of bases in the sequence that are either `G` or `C`.
+
+## Background
+
+This exercise is based on the gene CD28, which is involved in T-cell activation. The drug Theralizumab targeted CD28 and caused a severe adverse reaction in a first-in-human study — an example of why genomic analysis tools matter in medical software development.
+
+## Usage
+
+```bash
+python3 gccompute.py INPUT_FILE
+```
+
+## Output
+
+Since the FASTA file can contain multiple sequences, the script processes all of them. For each sequence it prints exactly 2 lines to stdout:
+
+```
+<sequence header>
+<GC-content as float>
+```
+
+Example with `cd28.fasta` (contains 2 sequences — primary assembly and alternate locus):
+
+```bash
+python3 gccompute.py cd28.fasta
+```
+
+```
+NC_000002.12:203706482-203738912
+40.004933551231844
+NC_060926.1:204188401-204220837
+39.9975336806733
+```
+
+After the run, results are also saved to `results.json` and `results.txt` in the `exercise_02/` folder, including a timestamp so you know when and by which script they were generated.
+
+## Error handling
+
+- No filename provided: prints usage message to stderr, exits with code 1.
+- File not found: prints error to stderr, exits with code 1.
+- File not readable or invalid encoding: prints error to stderr, exits with code 1.
+- No valid FASTA sequences in file: prints error to stderr, exits with code 1.
+
+## Where to find things
+
+| What | Where |
+|---|---|
+| Script | `gccompute.py` |
+| Input data (CD28) | `cd28.fasta` (extracted from the NCBI dataset zip and renamed from `gene.fna`) |
+| Result output (JSON) | `results.json` |
+| Result output (text) | `results.txt` |
+| Discussion & answers | `exercise_02.md` |
+
+## Data source
+
+The CD28 FASTA sequence was downloaded from NCBI Datasets:
+
+```
 https://www.ncbi.nlm.nih.gov/datasets
+```
 
-This zip archive contains an NCBI Datasets Data Package.
-
-NCBI Datasets Data Packages can include sequence, annotation and other data files, and metadata in one or more data report files.
-Data report files are in JSON Lines format.
-
----
-## FAQs
-### Where is the data I requested?
-
-Your data is in the subdirectory `ncbi_dataset/data/` contained within this zip archive.
-
-### I still can't find my data, can you help?
-
-We have identified a bug affecting Mac Safari users. When downloading data from the NCBI Datasets web interface, you may see only this README file after the download has completed (while other files appear to be missing).
-As a workaround to prevent this issue from recurring, we recommend disabling automatic zip archive extraction in Safari until Apple releases a bug fix.
-For more information, visit:
-https://www.ncbi.nlm.nih.gov/datasets/docs/reference-docs/mac-zip-bug/
-
-### How do I work with JSON Lines data reports?
-
-Visit our JSON Lines data report documentation page:
-https://www.ncbi.nlm.nih.gov/datasets/docs/v2/tutorials/working-with-jsonl-data-reports/
-
-### What is NCBI Datasets?
-
-NCBI Datasets is a resource that lets you easily gather data from across NCBI databases. Find and download gene, transcript, protein and genome sequences, annotation and metadata.
-
-### Where can I find NCBI Datasets documentation?
-
-Visit the NCBI Datasets documentation pages:
-https://www.ncbi.nlm.nih.gov/datasets/docs/
-
----
-
-National Center for Biotechnology Information
-National Library of Medicine
-info@ncbi.nlm.nih.gov
+The full dataset is in the `ncbi_dataset/` folder.

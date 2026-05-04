@@ -1,0 +1,10 @@
+{
+  "generated_by": "gccompute.py",
+  "timestamp": "2026-05-04T04:48:28.400355",
+  "sequences": [
+    {
+      "header": "test_header",
+      "gc_content": 50.0
+    }
+  ]
+}
