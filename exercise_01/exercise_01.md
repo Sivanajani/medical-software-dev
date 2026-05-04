@@ -1,6 +1,6 @@
 # Exercise 01 – Discussion
 
-**Sources:** [`results.json`](results.json) · [`results.txt`](results.txt)
+**Sources:** [`gene_analyzer.py`](gene_analyzer.py) · [`results.json`](results.json) · [`results.txt`](results.txt)
 
 ## Gene Data Results
 
