@@ -47,11 +47,11 @@ After the run, results are also saved to `results.json` and `results.txt` in the
 
 | What | Where |
 |---|---|
-| Script | `gccompute.py` |
-| Input data (CD28) | `cd28.fasta` (extracted from the NCBI dataset zip and renamed from `gene.fna`) |
-| Result output (JSON) | `results.json` |
-| Result output (text) | `results.txt` |
-| Discussion & answers | `exercise_02.md` |
+| Script | [`gccompute.py`](gccompute.py) |
+| Input data (CD28) | [`cd28.fasta`](cd28.fasta) (extracted from the NCBI dataset zip and renamed from `gene.fna`) |
+| Result output (JSON) | [`results.json`](results.json) |
+| Result output (text) | [`results.txt`](results.txt) |
+| Discussion & answers | [`exercise_02.md`](exercise_02.md) |
 
 ## Data source
 

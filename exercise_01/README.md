@@ -59,11 +59,11 @@ protein-coding
 
 | What | Where |
 |---|---|
-| Script | `gene_analyzer.py` |
+| Script | [`gene_analyzer.py`](gene_analyzer.py) |
 | Input data | `gene_info` (or `gene_info.gz`) |
-| Result output (JSON) | `results.json` |
-| Result output (text) | `results.txt` |
-| Discussion & answers | `exercise_01.md` |
+| Result output (JSON) | [`results.json`](results.json) |
+| Result output (text) | [`results.txt`](results.txt) |
+| Discussion & answers | [`exercise_01.md`](exercise_01.md) |
 
 ## Data source
 
