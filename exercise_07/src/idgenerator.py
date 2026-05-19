@@ -1,17 +1,28 @@
+"""ID generator classes for creating unique identifiers."""
 from abc import ABC, abstractmethod
 import uuid
 import random
 
-class IDGenerator(ABC):
 
-  @abstractmethod
-  def get_id(self):
-    pass
+class IDGenerator(ABC):  # pylint: disable=too-few-public-methods
+    """Abstract base class for ID generators."""
 
-class AlphaNumericIDGenerator(IDGenerator):
-  def get_id(self):
-    return str(uuid.uuid1())
+    @abstractmethod
+    def get_id(self):
+        """Return a unique ID."""
 
-class NumericIDGenerator(IDGenerator):
-  def get_id(self):
-    return random.randint(10000, 100000000000)
+
+class AlphaNumericIDGenerator(IDGenerator):  # pylint: disable=too-few-public-methods
+    """Generates UUID-based alphanumeric IDs."""
+
+    def get_id(self):
+        """Return a UUID1-based string ID."""
+        return str(uuid.uuid1())
+
+
+class NumericIDGenerator(IDGenerator):  # pylint: disable=too-few-public-methods
+    """Generates random numeric IDs."""
+
+    def get_id(self):
+        """Return a random integer ID."""
+        return random.randint(10000, 100000000000)

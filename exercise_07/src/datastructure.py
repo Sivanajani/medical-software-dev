@@ -1,9 +1,13 @@
+"""Data structures for patients, experiments, and sensor data points."""
 import json
-import idgenerator
 import os
 
-class Patient(object):
-    """Description of class Patient"""
+import idgenerator
+
+
+class Patient:  # pylint: disable=too-few-public-methods
+    """Represents a patient in an experiment."""
+
     def __init__(self, name, patient_id=None):
         self.name = name
         if patient_id is None:
@@ -14,26 +18,36 @@ class Patient(object):
 
 
 class PatientEncoder(json.JSONEncoder):
-    def default(self, obj):
-        return obj.__dict__
+    """JSON encoder for Patient objects."""
+
+    def default(self, o):
+        """Serialize object to a dict."""
+        return o.__dict__
 
 
-class Experiment(object):
-    def __init__(self, name, id=None):
+class Experiment:  # pylint: disable=too-few-public-methods
+    """Represents an experiment."""
+
+    def __init__(self, name, experiment_id=None):
         self.name = name
-        if id is None:
+        if experiment_id is None:
             id_gen = idgenerator.AlphaNumericIDGenerator()
             self.id = id_gen.get_id()
         else:
-            self.id = id
+            self.id = experiment_id
 
 
 class ExperimentEncoder(json.JSONEncoder):
-    def default(self, obj):
-        return obj.__dict__
+    """JSON encoder for Experiment objects."""
+
+    def default(self, o):
+        """Serialize object to a dict."""
+        return o.__dict__
 
 
-class DataPoint(object):
+class DataPoint:  # pylint: disable=too-few-public-methods
+    """Represents a single sensor data point linked to a patient and experiment."""
+
     def __init__(self, patient_id, experiment_id, data):
         id_gen = idgenerator.AlphaNumericIDGenerator()
         self.id = id_gen.get_id()
@@ -43,65 +57,64 @@ class DataPoint(object):
 
 
 class DataPointEncoder(json.JSONEncoder):
-    def default(self, obj):
-        return obj.__dict__
+    """JSON encoder for DataPoint objects."""
+
+    def default(self, o):
+        """Serialize object to a dict."""
+        return o.__dict__
 
 
-class DataStorage(object):
+class DataStorage:
+    """Singleton storage for patients, experiments, and data points."""
+
     def __new__(cls):
         if not hasattr(cls, 'instance'):
-            cls.instance = super(DataStorage, cls).__new__(cls)
+            cls.instance = super().__new__(cls)
             cls.instance.experiments = {}
             cls.instance.patients = {}
             cls.instance.data = []
         return cls.instance
 
     def add_patient(self, obj):
+        """Add a patient to storage."""
         self.patients[obj.id] = obj
 
-    def get_patient(self, id):
-        if id in self.patients:
-            return self.patients[id]
-        else:
-            return None
+    def get_patient(self, patient_id):
+        """Return patient by ID, or None if not found."""
+        return self.patients.get(patient_id)
 
     def add_experiment(self, obj):
+        """Add an experiment to storage."""
         self.experiments[obj.id] = obj
 
-    def get_experiment(self, id):
-        if id in self.experiments:
-            return self.experiments[id]
-        else:
-            return None
+    def get_experiment(self, experiment_id):
+        """Return experiment by ID, or None if not found."""
+        return self.experiments.get(experiment_id)
 
     def add_data(self, obj):
+        """Add a data point to storage."""
         self.data.append(obj)
 
     def store_data(self):
-        with open('patients.json', 'w') as pf:
+        """Persist patients, experiments, and data points to JSON files."""
+        with open('patients.json', 'w', encoding='utf-8') as pf:
             pf.write(json.dumps(self.patients, cls=PatientEncoder))
-            pf.close()
-        with open('experiments.json', 'w') as ef:
+        with open('experiments.json', 'w', encoding='utf-8') as ef:
             ef.write(json.dumps(self.experiments, cls=ExperimentEncoder))
-            ef.close()
-        with open('data.json', 'w') as df:
+        with open('data.json', 'w', encoding='utf-8') as df:
             df.write(json.dumps(self.data, cls=DataPointEncoder))
-            df.close()
         self.data.clear()
 
     def load_data(self):
-        patient_file = 'patients.json'
-        if os.path.exists(patient_file):
-            with open(patient_file, 'r') as file:
-                patient_data = json.load(file)
-            for val in patient_data.values():
-                obj = Patient(val['name'], val['id'])
-                self.patients[val['id']] = obj
+        """Load patients and experiments from JSON files if they exist."""
+        if os.path.exists('patients.json'):
+            with open('patients.json', 'r', encoding='utf-8') as file:
+                for val in json.load(file).values():
+                    obj = Patient(val['name'], val['id'])
+                    self.patients[val['id']] = obj
 
-        experiment_file = 'experiments.json'
-        if os.path.exists(experiment_file):
-            with open(experiment_file, 'r') as file:
-                experiment_data = json.load(file)
-            for val in experiment_data.values():
-                obj = Experiment(val['name'], val['id'])
-                self.experiments[val['id']] = obj
+        if os.path.exists('experiments.json'):
+            with open('experiments.json', 'r', encoding='utf-8') as file:
+                for val in json.load(file).values():
+                    obj = Experiment(val['name'], val['id'])
+                    self.experiments[val['id']] = obj
