@@ -136,7 +136,7 @@ def read_fasta_sequence(filepath: str) -> dict[str, str]:
     sequences = {}
     current_header = None
     current_seq = []
-    with open(filepath, 'r') as f:
+    with open(filepath, 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
             if line.startswith('>'):
