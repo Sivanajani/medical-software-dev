@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -27,8 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
-
-import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             addButton.setEnabled(false);
             resetButton.setEnabled(false);
             startButton.setText("Stop");
-            sensorHandler.setMetaData(patientId, experimentId);
+            sensorHandler.setMetaData(patientId, experimentId, Build.MANUFACTURER + " " + Build.MODEL);
             startCollectingData();
         } else {
             stopCollectingData(serverIp);
@@ -137,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
 
         TextView statusView = findViewById(R.id.statusLabel);
-        String url = "http://" + serverIpAddress + "/data";
+        String url = "http://" + serverIpAddress + "/upload";
         Gson gson = new Gson();
         String requestBody = gson.toJson(dObj);
 
@@ -153,7 +152,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 // do some error handling
-                statusView.setText("call failed: " + error.getMessage());
+                String message = error.getMessage();
+                if (message == null && error.getCause() != null) {
+                    message = error.getCause().getClass().getSimpleName() + ": " + error.getCause().getMessage();
+                }
+                if (message == null) {
+                    message = error.getClass().getSimpleName();
+                }
+                statusView.setText("call failed: " + message);
             }
         }) {
             @Override

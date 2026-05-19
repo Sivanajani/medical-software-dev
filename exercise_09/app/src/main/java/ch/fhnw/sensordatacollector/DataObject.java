@@ -1,6 +1,9 @@
 package ch.fhnw.sensordatacollector;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class DataObject {
 
@@ -15,6 +18,7 @@ public class DataObject {
     private String sensorId;
     private List<Float> data;
     private Long timestamp;
+    private String friendlyTimeStamp;
     private Integer accuracy;
     private int sensorType;
 
@@ -72,6 +76,14 @@ public class DataObject {
 
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
+        // SensorEvent.timestamp is nanoseconds since boot; convert to wall-clock milliseconds
+        long eventMillis = System.currentTimeMillis() + (timestamp - System.nanoTime()) / 1_000_000L;
+        friendlyTimeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault())
+                .format(new Date(eventMillis));
+    }
+
+    public String getFriendlyTimeStamp() {
+        return friendlyTimeStamp;
     }
 
     public Integer getExperimentId() {

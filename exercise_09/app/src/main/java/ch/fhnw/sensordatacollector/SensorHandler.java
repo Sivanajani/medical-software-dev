@@ -3,10 +3,8 @@ package ch.fhnw.sensordatacollector;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SensorHandler implements SensorEventListener {
@@ -17,12 +15,15 @@ public class SensorHandler implements SensorEventListener {
 
     private Integer experimentId;
 
+    private String device;
+
     public SensorHandler() {
     }
 
-    public void setMetaData(Integer patientId, Integer experimentId) {
+    public void setMetaData(Integer patientId, Integer experimentId, String device) {
         this.patientId = patientId;
         this.experimentId = experimentId;
+        this.device = device;
     }
 
     @Override
@@ -34,6 +35,7 @@ public class SensorHandler implements SensorEventListener {
 
         dObj.setPatientId(patientId);
         dObj.setExperimentId(experimentId);
+        dObj.setDevice(device);
         dObj.setSensorType(sensorEvent.sensor.getType());
         dObj.setSensorId(sensorEvent.sensor.getName());
         List<Float> data = new ArrayList<>();
