@@ -26,8 +26,8 @@ Device: Samsung SM-S928B, Android 16, API Level 36
 
 ### 2. Which sensor could be used to measure Parkinson's disease?
 
-Parkinson's is known for tremors, which is involuntary shaking mostly in the hands.
+Parkinson's disease is known for resting tremors, which are involuntary rhythmic movements at around 4 to 6 Hz, mostly in the hands when the muscles are relaxed.
 
-The Accelerometer measures acceleration and movement. When holding the phone in the hand, it can detect the shaking as small rapid movements. This makes it useful for tracking Parkinson's symptoms.
+The accelerometer measures linear acceleration along three axes (X, Y, Z). When the phone is held in the hand, these tremors show up as periodic oscillations in the sensor signal. A frequency analysis (FFT) can be used to detect the typical 4 to 6 Hz tremor pattern.
 
-There are many studies using smartphones with accelerometers to track and measure Parkinson's symptoms. In the app, the sensor `lsm6dsv LSM6DSV Accelerometer` is visible, which is exactly the accelerometer on the Samsung device used for this exercise.
+Several studies have used smartphone accelerometers to monitor Parkinson's symptoms. The sensor lsm6dsv LSM6DSV Accelerometer Non-wakeup visible in the app is the accelerometer of the Samsung SM-S928B used in this exercise.
