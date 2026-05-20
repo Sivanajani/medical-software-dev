@@ -1,40 +1,50 @@
 # Medical Software Development – FHNW
 
 **Master Medical Informatics | FHNW Life Science Technologies**  
-**Course:** Medical Software Development
+**Course:** Medical Software Development  
+**Student:** Sivanajani Sivakumar | sivanajani.sivakumar@students.fhnw.ch
 
----
+## About this repository
+
+This repository contains all exercises for the Medical Software Development course at FHNW. Each exercise has its own folder (`exercise_01/`, `exercise_02/`, etc.).
 
 ## Repository Structure
 
 ```
 medical-software-dev/
-├── exercise_01_gene_analyzer/
-├── exercise_02_gc_content/
-├── exercise_03_streamlit/
-├── exercise_04_cost_estimation/
-├── exercise_05_system_requirements/
-├── exercise_06_dna2protein/
-├── exercise_07_data_collection_service/
-├── exercise_08_android_sensor/
-├── exercise_09_data_collection/
-└── exercise_10_data_analytics/
+├── exercise_01/   Gene Analyzer
+├── exercise_02/   GC Content Calculator
+├── exercise_03/   Streamlit Web App
+├── exercise_04/   Cost Estimation
+├── exercise_05/   System Requirements Specification
+├── exercise_06/   DNA to Protein (OOP & Design Patterns)
+├── exercise_07/   Data Collection Service (Flask Backend)
+├── exercise_08/   Android Sensor Overview
+├── exercise_09/   Android Sensor Data Collection App
+└── exercise_10/   Sensor Data Analysis
 ```
 
-## Exercises Overview
+## File conventions
 
-| # | Topic | Language |
-|---|-------|----------|
-| 1 | Gene Analyzer | Python / Java |
-| 2 | Computing GC Content | Python / Java |
-| 3 | Streamlit App | Python |
-| 4 | Cost Estimation | - |
-| 5 | System Requirements Specification | - |
-| 6 | DNA2Protein (OOP) | Python |
-| 7 | Data Collection Service | Python / Java |
-| 8 | Android Sensor Overview | Java |
-| 9 | Data Collection | Java |
-| 10 | Scientific Data Analysis | Python / R |
+Each exercise folder follows the same structure:
 
-## Author
-Sivanajani Sivakumar | sivanajani.sivakumar@students.fhnw.ch
+- **`README.md`** – Technical documentation: how to set up, build, and run the code. Also lists where to find all relevant files.
+- **`exercise_XX.md`** – Discussion and answers to the exercise questions. This is where the actual task responses, design decisions, and analysis results are written.
+
+Some exercises (e.g. Exercise 03) have no separate discussion file, the answers are written directly in the `README.md`.  
+Some exercises (e.g. Exercise 04, 05) have no code and therefore no `README.md`, only a discussion file.
+
+## Exercises
+
+| # | Topic | README | Discussion |
+|---|-------|--------|------------|
+| 1 | Gene Analyzer | [README](exercise_01/README.md) | [exercise_01.md](exercise_01/exercise_01.md) |
+| 2 | GC Content Calculator | [README](exercise_02/README.md) | [exercise_02.md](exercise_02/exercise_02.md) |
+| 3 | Streamlit Web App | [README](exercise_03/README.md) | included in README |
+| 4 | Cost Estimation | – | [exercise_04.md](exercise_04/exercise_04.md) |
+| 5 | System Requirements | – | [exercise_05.md](exercise_05/exercise_05.md) |
+| 6 | DNA to Protein | [README](exercise_06/README.md) | [exercise_06.md](exercise_06/exercise_06.md) |
+| 7 | Data Collection Service | [README](exercise_07/README.md) | [exercise_07.md](exercise_07/exercise_07.md) |
+| 8 | Android Sensor Overview | [README](exercise_08/README.md) | [exercise_08.md](exercise_08/exercise_08.md) |
+| 9 | Data Collection App | [README](exercise_09/README.md) | [exercise_09.md](exercise_09/exercise_09.md) |
+| 10 | Sensor Data Analysis | – | – |
