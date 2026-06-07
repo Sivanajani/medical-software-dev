@@ -1,12 +1,12 @@
 # Exercise 10 – Scientific Question
 
-**Sources:** [`exercise_10.pptx`](exercise_10.pptx) · [`../exercise_09/analysis.ipynb`](../exercise_09/analysis.ipynb) · [`../exercise_09/data.json`](../exercise_09/data.json)
+**Sources:** [`exercise_10.pptx`](exercise_10.pptx) · [`exercise_10.pdf`](exercise_10.pdf) · [`../exercise_09/analysis.ipynb`](../exercise_09/analysis.ipynb) · [`../exercise_09/data.json`](../exercise_09/data.json)
 
 ---
 
 ## Scientific Question
 
-*Can a consumer smartphone's built-in accelerometer reliably detect the characteristic 4–6 Hz resting tremor associated with Parkinson's disease?**
+*Can a consumer smartphone's built-in accelerometer reliably detect the characteristic 4–6 Hz resting tremor associated with Parkinson's disease?*
 
 Parkinson's disease is characterised by a resting tremor at 4 to 6 Hz, which occurs when the muscles are relaxed. The accelerometer in a smartphone measures linear acceleration along three axes (X, Y, Z). When the phone is held in the hand, tremors appear as periodic oscillations in the sensor signal. FFT frequency analysis can identify the characteristic 4 to 6 Hz tremor pattern.
 
@@ -57,3 +57,5 @@ The 3-slide presentation `exercise_10.pptx` covers:
 | 1 | Scientific question and motivation |
 | 2 | Sensor used for data collection |
 | 3 | Analytics results with all three plots |
+
+The presentation is available as [`exercise_10.pptx`](exercise_10.pptx) and [`exercise_10.pdf`](exercise_10.pdf).
