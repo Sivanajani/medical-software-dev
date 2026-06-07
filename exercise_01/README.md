@@ -16,7 +16,7 @@ https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene_info.gz
 python3 gene_analyzer.py gene_info.gz
 ```
 
-The script detects the `.gz` extension and decompresses the file on the fly using Python's built-in `gzip` module. No manual extraction needed.
+The script detects gzip compression by inspecting the file's magic bytes (`\x1f\x8b`) and decompresses it on the fly using Python's built-in `gzip` module. No manual extraction needed, and it works regardless of file extension.
 
 ## Output
 
