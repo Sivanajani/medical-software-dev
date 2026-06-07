@@ -1,6 +1,6 @@
 # Exercise 4 - Cost / Time Estimation
 **Sensor Data Collector - Mobile Application**  
-Medical Software Development · FHNW · 2025
+Medical Software Development, FHNW 2026
 
 ---
 
