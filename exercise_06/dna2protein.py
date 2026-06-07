@@ -50,8 +50,11 @@ class SequenceStorage:
     def __new__(cls) -> 'SequenceStorage':
         if cls._instance is None:
             cls._instance = super().__new__(cls)
-            cls._instance.data = {}
         return cls._instance
+
+    def __init__(self) -> None:
+        if not hasattr(self, 'data'):
+            self.data: dict = {}
 
     def save(self, name: str, seq: object) -> None:
         """Store a sequence under the given name."""
