@@ -1,6 +1,6 @@
 # Medical Software Development – FHNW
 
-**Master Medical Informatics | FHNW Life Science Technologies**  
+**Master Medical Informatics | FHNW**  
 **Course:** Medical Software Development  
 **Student:** Sivanajani Sivakumar | sivanajani.sivakumar@students.fhnw.ch
 
@@ -47,4 +47,4 @@ Some exercises (e.g. Exercise 04, 05) have no code and therefore no `README.md`,
 | 7 | Data Collection Service | [README](exercise_07/README.md) | [exercise_07.md](exercise_07/exercise_07.md) |
 | 8 | Android Sensor Overview | [README](exercise_08/README.md) | [exercise_08.md](exercise_08/exercise_08.md) |
 | 9 | Data Collection App | [README](exercise_09/README.md) | [exercise_09.md](exercise_09/exercise_09.md) |
-| 10 | Sensor Data Analysis | – | – |
+| 10 | Sensor Data Analysis | [README](exercise_10/README.md) | [exercise_10.md](exercise_10/exercise_10.md) |
